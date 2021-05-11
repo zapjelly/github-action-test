@@ -1,9 +1,4 @@
 name: CI/CD
-inputs:
-  version:
-    description: The type of target to check against (core, supervisor, plugin, generic)
-    required: false
-    default: "generic"
 
 on:
   push:
@@ -51,8 +46,8 @@ jobs:
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
           title: Release v2.2.0
-          version: ${{ github.event.inputs.version }}
           repo_token: "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"
+          automatic_release_tag: "latest"
           prerelease: false
           files: |
             ./build/*
