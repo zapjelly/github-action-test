@@ -46,6 +46,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            ./build/*
+            ./public/*
         env:
           GITHUB_TOKEN: "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"
