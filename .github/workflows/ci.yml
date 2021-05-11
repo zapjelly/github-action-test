@@ -43,11 +43,8 @@ jobs:
         run: npm run build
 
       - name: Upload Release Assets
-        uses: "marvinpinto/action-automatic-releases@latest"
-        with:
-          title: Release v2.2.0
-          repo_token: "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"
-          automatic_release_tag: "latest"
-          prerelease: false
+        uses: softprops/action-gh-release@v1
           files: |
             ./build/*
+        env:
+          GITHUB_TOKEN: "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"
