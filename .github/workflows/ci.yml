@@ -12,6 +12,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+      - name: Create env file
+      run: |
+        touch .env
+        echo REACT_APP_SUPPORT_EMAIL=help@cashflowcoachingkit.com.au >> .env
+        echo REACT_APP_AWS_CONTENT_DELIVERY_URL=di8he5rpe0sl7.cloudfront.net >> .env
+        echo REACT_APP_GA_ID=UA-177371209-1 >> .env
+        echo REACT_APP_VERSION=$npm_package_version >> .env
 
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -45,4 +52,4 @@ jobs:
           tag_name: release
           files: ./public/*
         env:
-          GITHUB_TOKEN: "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"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
