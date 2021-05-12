@@ -44,8 +44,8 @@ jobs:
       - name: Upload Release Assets
         uses: lucyio/upload-to-release@master
         with:
-        name: lucyio/electron
-        path: ./dist/*
-        action: unpublished
-        release_id: 2.0.0
-        release-repo: lucyio/electron
+          name: lucyio/electron
+          path: ./dist/*
+          action: unpublished
+          release_id: 2.0.0
+          release-repo: lucyio/electron
