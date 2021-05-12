@@ -19,7 +19,14 @@ jobs:
           echo REACT_APP_AWS_CONTENT_DELIVERY_URL=di8he5rpe0sl7.cloudfront.net >> .env
           echo REACT_APP_GA_ID=UA-177371209-1 >> .env
           echo REACT_APP_VERSION=$npm_package_version >> .env
-
+      - name: Tag the release
+        run: |
+          git fetch
+          git config user.email "pak.cindy@gmail.com"
+          git config user.name "zapjelly"
+          git add --all
+          git commit -m "update versions to ${{ steps.package-version.outputs.current-version }}"
+          git push
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -43,6 +50,9 @@ jobs:
 
       - name: Build
         run: npm run build
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@master
 
       - name: Upload Release Assets
         uses: softprops/action-gh-release@v1
