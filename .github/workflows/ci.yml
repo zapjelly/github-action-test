@@ -13,12 +13,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Create env file
-      run: |
-        touch .env
-        echo REACT_APP_SUPPORT_EMAIL=help@cashflowcoachingkit.com.au >> .env
-        echo REACT_APP_AWS_CONTENT_DELIVERY_URL=di8he5rpe0sl7.cloudfront.net >> .env
-        echo REACT_APP_GA_ID=UA-177371209-1 >> .env
-        echo REACT_APP_VERSION=$npm_package_version >> .env
+        run: |
+          touch .env
+          echo REACT_APP_SUPPORT_EMAIL=help@cashflowcoachingkit.com.au >> .env
+          echo REACT_APP_AWS_CONTENT_DELIVERY_URL=di8he5rpe0sl7.cloudfront.net >> .env
+          echo REACT_APP_GA_ID=UA-177371209-1 >> .env
+          echo REACT_APP_VERSION=$npm_package_version >> .env
 
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
