@@ -13,14 +13,6 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
-      before_deploy:
-        - git config --global user.email "builds@travis-ci.com"
-        - git config --global user.name "Travis CI"
-        - export GIT_TAG=$TRAVIS_BRANCH-0.1.$TRAVIS_BUILD_NUMBER
-        - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
-        - git push -q https://$TAGPERM@github.com/RlonRyan/JBasicX --tags
-        - ls -R
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -50,9 +42,10 @@ jobs:
         run: npm run build
 
       - name: Upload Release Assets
-        uses: softprops/action-gh-release@v1
+        uses: lucyio/upload-to-release@master
         with:
-          files: |
-            ./public/*
-        env:
-          GITHUB_TOKEN: "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"
+        name: lucyio/electron
+        path: ./dist/*
+        action: unpublished
+        release_id: 2.0.0
+        release-repo: lucyio/electron
