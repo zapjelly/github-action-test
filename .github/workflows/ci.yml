@@ -19,9 +19,9 @@ jobs:
           echo REACT_APP_AWS_CONTENT_DELIVERY_URL=di8he5rpe0sl7.cloudfront.net >> .env
           echo REACT_APP_GA_ID=UA-177371209-1 >> .env
           echo REACT_APP_VERSION=$npm_package_version >> .env
-       - name: Extract version
-          id: extract_version
-          uses: Saionaro/extract-package-version@v1.1.1
+      - name: Extract version
+        id: extract_version
+        uses: Saionaro/extract-package-version@v1.1.1
       # From now you can access the version
       - name: Print version
           run: echo ${{ steps.extract_version.outputs.version }}
