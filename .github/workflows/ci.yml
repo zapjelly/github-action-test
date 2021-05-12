@@ -49,4 +49,4 @@ jobs:
           action: unpublished
           release_id: 2.0.0
           release-repo: zapjelly/github-action-test
-          repo-token: "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"
+          repo-token: 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
