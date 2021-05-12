@@ -24,7 +24,7 @@ jobs:
         uses: Saionaro/extract-package-version@v1.1.1
       # From now you can access the version
       - name: Print version
-          run: echo ${{ steps.extract_version.outputs.version }}
+        run: echo ${{ steps.extract_version.outputs.version }}
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
