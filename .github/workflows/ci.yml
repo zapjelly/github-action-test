@@ -39,5 +39,9 @@ jobs:
 
       - name: Upload Release Assets
         uses: softprops/action-gh-release@v1
+          with:
+            body: "Release notes"
+            name: Latest
+            tag_name: release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
