@@ -43,7 +43,6 @@ jobs:
           body: "Release notes"
           name: Latest
           tag_name: release
-          files: |
-          ./public/*
+          files: ./public/*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
